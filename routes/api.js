@@ -27,12 +27,12 @@ module.exports = function (app) {
 
       }else if (typeof(stock)==="object"){
         if(like){
-          const ress = await fetch(`https://stock-price-checker.freecodecamp.rocks/api/stock-prices?stock=${stock[0]}&stock=${stock[1]}&like=true`);
+          const ress = await fetch(`https://stock-price-checker.freecodecamp.rocks/api/stock-prices?stock=${stock[1]}&stock=${stock[0]}&like=true`);
           const body= await ress.json();
           console.log(body);
           ress != null ? res.status(200).json(body):res.status(400).type(text).send("invalid");
         }else{
-          const ress = await fetch(`https://stock-price-checker.freecodecamp.rocks/api/stock-prices?stock=${stock[0]}&stock=${stock[1]}`);
+          const ress = await fetch(`https://stock-price-checker.freecodecamp.rocks/api/stock-prices?stock=${stock[1]}&stock=${stock[0]}`);
           const body= await ress.json();
           console.log(body);
           ress != null ? res.status(200).json(body):res.status(400).type(text).send("invalid");
